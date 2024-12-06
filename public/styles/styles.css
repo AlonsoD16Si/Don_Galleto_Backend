@@ -1,0 +1,143 @@
+/* Importar las fuentes desde el directorio 'public/fonts' */
+@font-face {
+    font-family: 'Halant';
+    src: url('../fonts/Halant-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Halant';
+    src: url('../fonts/Halant-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Halant';
+    src: url('../fonts/Halant-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Halant';
+    src: url('../fonts/Halant-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Halant';
+    src: url('../fonts/Halant-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Variables de colores */
+:root {
+    --main-color: #986D4E;
+    --alert-color: #DD3333;
+    --base-color: #F1E7D8;
+    --base-secundario-color: #D9D9D9;
+    --advice-color: #EFD440;
+    --green-lime-color: #66ED52;
+    --text-color-light: #FFF;
+    --text-color-dark: #000;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Halant', sans-serif;
+    background-color: var(--base-color);
+    color: var(--text-color-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Halant', sans-serif;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+/* Estilos de colores */
+.alert {
+    background-color: var(--alert-color);
+    color: var(--text-color-light);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.base {
+    background-color: var(--base-color);
+    color: var(--text-color-dark);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.base-secundario {
+    background-color: var(--base-secundario-color);
+    color: var(--text-color-dark);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.advice {
+    background-color: var(--advice-color);
+    color: var(--text-color-dark);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.green-lime {
+    background-color: var(--green-lime-color);
+    color: var(--text-color-dark);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estilos de texto */
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+p, span, li {
+    font-size: 16px;
+}
+
+small {
+    font-size: 14px;
+}
+
+footer {
+    font-size: 12px;
+}
+
+/* Personalización de tamaños de fuente */
+.text-xl {
+    font-size: 20px;
+}
+
+.text-lg {
+    font-size: 18px;
+}
+
+.text-md {
+    font-size: 16px;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-xs {
+    font-size: 12px;
+}
