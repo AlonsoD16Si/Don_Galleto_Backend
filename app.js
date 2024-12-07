@@ -9,8 +9,6 @@ const app = express();
 const port = 3001;
 const insumoRoutes = require('./api/routes/insumo.routes');
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
 // Middleware para parsear JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
