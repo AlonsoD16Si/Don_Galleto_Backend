@@ -1,3 +1,6 @@
+const {query} = require("../../config/database");
+const procedures = require("../../config/procedures");
+
 class InsumosController {
     constructor(insumoController) {
         this.insumoController = insumoController;
@@ -54,6 +57,49 @@ class InsumosController {
                 status: 'error',
                 message: error.message,
             });
+        }
+    }
+
+    async actualizarInventario(req, res) {
+        const { id, amount } = req.params;  // Obtener parámetros de la URL
+
+        try {
+            // Llamar al procedimiento para actualizar el inventario
+            const result = await procedures.actualizarInventarioParaProduccion(id, amount);
+
+            // Verificar si el procedimiento devuelve un mensaje
+            if (result && result.message) {
+                console.log('Mensaje del procedimiento:', result.message);
+
+                // Responder con el mensaje en un formato JSON
+                return res.status(200).json({
+                    status: result.status,
+                    message: result.message
+                });
+            } else {
+                // Si no se obtuvo mensaje, manejarlo como un error
+                console.error('Error en el procedimiento, no se obtuvo mensaje');
+                return res.status(500).json({
+                    status: 'error',
+                    message: 'No se obtuvo mensaje del procedimiento'
+                });
+            }
+        } catch (error) {
+            // Manejo del error específico de inventario insuficiente
+            if (error.sqlMessage && error.sqlMessage.includes('No hay suficiente inventario para esta producción')) {
+                console.error('Error al ejecutar el procedimiento SQL:', error.sqlMessage);
+                return res.status(200).json({
+                    status: 'warning',
+                    message: 'No hay suficiente inventario para esta producción.'
+                });
+            } else {
+                // Si se trata de otro tipo de error, manejarlo de forma general
+                console.error('Error desconocido:', error);
+                return res.status(500).json({
+                    status: 'error',
+                    message: 'Ocurrió un error inesperado.'
+                });
+            }
         }
     }
 }

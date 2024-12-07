@@ -1,3 +1,5 @@
+const {query, QueryTypes} = require("../config/database");
+
 class InsumoService {
     constructor(insumoModel) {
         this.insumoModel = insumoModel;
